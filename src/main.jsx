@@ -13,6 +13,8 @@ import { ErrorPage } from './components/errorPage/ErrorPage.jsx';
 import {Hero} from './components/hero/Hero.jsx'
 import { Planos } from './components/planos/Planos.jsx';
 import { Post } from './components/posts-imoveis/Post.jsx';
+import { About } from './components/sobre/About.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,10 @@ const router = createBrowserRouter([
         path: 'planos',
         element: <Planos />
       },
+      {
+        path: 'sobre',
+        element: <About />
+      }
     ],
   },
   {

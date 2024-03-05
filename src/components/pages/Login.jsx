@@ -42,6 +42,9 @@ export const Login = () => {
 
     // função de login
     const handleLoginSubmit = async (event) => {
+
+        <Header isToken={isToken}/>
+
         event.preventDefault();
         try {
             const response = await axios.post('http://localhost:8080/auth/login', loginData);
@@ -84,17 +87,20 @@ export const Login = () => {
                         placeholder='Digite seu e-mail'
                         value={loginData.email} 
                         onChange={(e) => setLoginData({...loginData, email: e.target.value})} required />
+
                     <input type="password" 
                         id="senha" 
                         name="senha" 
                         placeholder='Digite sua senha'
                         value={loginData.password} onChange={(e) => setLoginData({...loginData, password: e.target.value})} 
                         required />
+
                     <input type="submit" 
                         value="Entrar" 
                         className='button'/>
                     <p onClick={toggleForm}>Não possui uma conta? Criar</p> {/* Mensagem de criar conta */}
                 </form>
+
             ) : (
                 <form onSubmit={handleRegistroSubmit} className='form-container'>
                     <h1>Criar Conta</h1>
@@ -104,6 +110,7 @@ export const Login = () => {
                         placeholder='Digite seu nome'
                         value={registroData.name} onChange={(e) => setRegistroData({...registroData, name: e.target.value})} 
                         required />
+
                     <input type="tel" 
                         id="tel" 
                         name="tel" 
@@ -111,6 +118,7 @@ export const Login = () => {
                         value={registroData.phone} 
                         onChange={(e) => setRegistroData({...registroData, phone: e.target.value})} 
                         required />
+
                     <input type="email" 
                         id="emailRegistro" 
                         name="emailRegistro" 
@@ -118,12 +126,14 @@ export const Login = () => {
                         value={registroData.email} 
                         onChange={(e) => setRegistroData({...registroData, email: e.target.value})} 
                         required />
+
                     <input type="password" 
                         id="senhaRegistro" 
                         name="senhaRegistro" 
                         placeholder='Digite sua senha'
                         value={registroData.password} onChange={(e) => setRegistroData({...registroData, password: e.target.value})} 
                         required />
+
                     <input type="submit" 
                         value="Registrar" 
                         className='button'/>
