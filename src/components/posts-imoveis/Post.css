@@ -117,3 +117,30 @@ form .fields .input-field {
 .container-posts .details .details-input {
     margin: 2rem;
 }
+
+.input-field input[type="file"] {
+    display: none; /* Escondendo o campo de input de arquivo */
+}
+
+.input-field label.upload-button {
+    position: relative;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: #27ae60;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 2.5rem;
+}
+
+.input-field label.upload-button:hover {
+    background-color: #219653;
+}
+
+.input-field label.upload-button:active {
+    background-color: #1e8449;
+}
+

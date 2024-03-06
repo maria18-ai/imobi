@@ -10,7 +10,6 @@ function App() {
     <Pages />
       <Outlet />
       {/* outros components// footer */}
-
     </>
   )
 }
