@@ -75,6 +75,10 @@
     font-size: 13px;
 }
 
+.post-image {
+    width: 100%;
+}
+
 .loading {
     text-align: center;
     

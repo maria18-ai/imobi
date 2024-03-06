@@ -21,7 +21,7 @@ export const Post = () => {
 
         const postData = {
             title: formData.get('title'),
-            description: "descrição nada a ver por enquanto",
+            description: formData.get('description'),
             zipcode: formData.get('zipcode'),
             neighborhood: formData.get('neighborhood'),
             city: formData.get('city'),
@@ -67,6 +67,12 @@ export const Post = () => {
                                         <label>Título</label>
                                         <input type="text" name="title" id="title" placeholder='Dê um título para seu imóvel' required/>
                                     </div>
+                                    
+                                    <div className="input-field">
+                                        <label>Descrição</label>
+                                        <input type="text" name="description" id="description" placeholder='Defina seu imóvel' required/>
+                                    </div>
+
 
                                     <div className="input-field">
                                         <label>CEP</label>

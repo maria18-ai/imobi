@@ -14,7 +14,7 @@ export const Imoveis = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://jsonplaceholder.typicode.com/photos');
+                const response = await axios.get('http://localhost:8080/post/getAllPosts');
                 setData(response.data);
             } catch (error) {
                 setError(error);
@@ -53,11 +53,10 @@ export const Imoveis = () => {
                 <div className="imoveis-list">
                     {data.map(photo => (
                         <div key={photo.id} className='imovel-card'>
-                            <img src={photo.thumbnailUrl} alt={photo.title}/>
-
+<img src={`data:image/jpeg;base64,${photo.imageBase64}`} alt={photo.title} className='post-image' />
                             <div className="card-content">
                                 <h3>{photo.title}</h3>
-                                <p>Info Info Info</p> 
+                                <p>{photo.description}</p> 
                             </div>
                         </div>
                     ))}
