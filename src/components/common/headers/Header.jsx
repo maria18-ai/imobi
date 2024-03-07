@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import logo from '../../image/icon-imobi.png'
 import { Link } from 'react-router-dom'
 
 import './Header.css'
@@ -22,7 +21,7 @@ export const Header = () => {
             <header>
                 <div className='nav-flex'>
                     <div className='logo'>
-                        <img src={logo} alt="logo" />
+                        {/* <img src={logo} alt="logo" /> */}
                     </div>
 
                     <div className="nav">
