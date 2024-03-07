@@ -37,8 +37,11 @@ export const Imoveis = () => {
     };
 
     const handleInserirImovel = () => {
-        // Redirecionar para o componente de inserção de imóvel
         navigate('/posts');
+    };
+
+    const redirectToDetails = (id) => {
+        navigate(`/imoveis/details/${id}`);
     };
 
     if (loading) return <div className='loading'>Carregando...</div>;
@@ -52,8 +55,8 @@ export const Imoveis = () => {
             <div className='div-imoveis-container'>
                 <div className="imoveis-list">
                     {data.map(photo => (
-                        <div key={photo.id} className='imovel-card'>
-<img src={`data:image/jpeg;base64,${photo.imageBase64}`} alt={photo.title} className='post-image' />
+                        <div key={photo.id} className='imovel-card' onClick={() => redirectToDetails(photo.id)}>
+                            <img src={`data:image/jpeg;base64,${photo.imageBase64}`} alt={photo.title} className='post-image' />
                             <div className="card-content">
                                 <h3>{photo.title}</h3>
                                 <p>{photo.description}</p> 
@@ -62,10 +65,11 @@ export const Imoveis = () => {
                     ))}
                 </div>
             </div>
-
-            {hasToken && (
-                <button className='inserir-imovel-button' onClick={handleInserirImovel}>Inserir Imóvel</button>
-            )}
+            <div className='button flex'>
+                {hasToken && (
+                    <button className='inserir-imovel-button' onClick={handleInserirImovel}>Inserir Imóvel</button>
+                )}
+            </div>
         </div>
     );
 };

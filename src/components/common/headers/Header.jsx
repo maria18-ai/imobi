@@ -16,6 +16,7 @@ export const Header = () => {
         setHasToken(token);
     }, [hasToken]); // Atualizar sempre que hasToken mudar
 
+    
     return (
         <>
             <header>
@@ -49,6 +50,7 @@ export const Header = () => {
                         </div>
                     )}
                 </div>
+
             </header>
         </>
     )

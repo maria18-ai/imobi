@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css';
-import { Link, Navigate } from 'react-router-dom';
-import { Header } from '../common/headers/Header';
+import { Navigate } from 'react-router-dom';
 
 export const Login = () => {
     const [loginData, setLoginData] = useState({
@@ -31,20 +30,18 @@ export const Login = () => {
 
             if (data.response) {
                 console.log('Mensagem da API de registro:', data.response);
-                handleLoginSubmit(); 
+                setShowLoginForm(true); // Mostrar o formulário de login após o registro
             } else {
-                console.error('Resposta da API inválida:', data);
+                console.log(data);
             }
         } catch (error) {
             console.error('Erro ao registrar usuário:', error);
         }
+    
     };
 
     // função de login
     const handleLoginSubmit = async (event) => {
-
-        <Header isToken={isToken}/>
-
         event.preventDefault();
         try {
             const response = await axios.post('http://localhost:8080/auth/login', loginData);
@@ -71,7 +68,7 @@ export const Login = () => {
 
     // Redirecionamento se o token for válido
     if (isToken) {
-        return <Navigate to="/" replace />;
+        return <Navigate to="/perfil" replace />;
     }
 
 

@@ -81,5 +81,14 @@
 
 .loading {
     text-align: center;
-    
+    font-size: 25px;
+    color: #27ae60;
+    font-weight: 400;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+
+.button .inserir-imovel-button {
+    margin:3rem;
+    margin-left: 85rem;
 }
