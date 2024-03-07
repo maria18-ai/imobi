@@ -119,7 +119,7 @@ form .fields .input-field {
 }
 
 .input-field input[type="file"] {
-    display: none; /* Escondendo o campo de input de arquivo */
+    display: none;
 }
 
 .input-field label.upload-button {
@@ -144,3 +144,37 @@ form .fields .input-field {
     background-color: #1e8449;
 }
 
+.form #next {
+    margin-top: 7rem;
+}
+
+.form #back {
+    margin: 2rem;
+}
+
+.input-field.textarea-field {
+    width: 300px; 
+    margin-top: 20px; 
+}
+
+.input-field.textarea-field label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+
+.input-field.textarea-field textarea {
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 10px 15px;
+    margin: 8px 0; 
+    height: 180px;
+}
+
+.input-field.textarea-field textarea:focus {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
