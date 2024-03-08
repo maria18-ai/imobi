@@ -1,0 +1,32 @@
+
+.contentContainer {
+    width: 60%;
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-right: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 36px;
+    display: flex;
+    background-color: whitesmoke;
+
+
+}
+
+.imageContent {
+    border-radius: 25px;
+    height: 50%;
+    width: 50%;
+}
+.post-image {
+    width: 100%;
+}
+.detailsContainer {
+    display: flex;
+    flex-direction: column;
+}
+.detailsContainer h2 {
+    margin-bottom: 1px solid black;
+}
