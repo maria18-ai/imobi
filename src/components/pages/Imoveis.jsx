@@ -53,6 +53,7 @@ export const Imoveis = () => {
 
                         <div className="imoveis-list">
                             {data.map(item => (
+
                                 <Link to={`/details/${item.id}`}>
                                     <div key={item.id} className='imovel-card'
                                     onClick={() => redirectToDetails(item.id)}>
@@ -65,6 +66,7 @@ export const Imoveis = () => {
                                         </div>
                                     </div>
                                 </Link>
+                                
                             ))}
                         </div>
 
