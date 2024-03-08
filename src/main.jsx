@@ -31,13 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'imoveis',
-        element: <Imoveis />,
-        children: [
-          {
-            path:'details/:id',
-            element: <Details />
-          },
-        ]
+        element: <Imoveis />
       }, 
       {
         path: 'login',
@@ -54,6 +48,11 @@ const router = createBrowserRouter([
       {
         path:'perfil',
         element: <Profile />
+      },
+      // rotas dinamicas 
+      {
+        path:'details/:id',
+        element: <Details />
       },
     ],
   },

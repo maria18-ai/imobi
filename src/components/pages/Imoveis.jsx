@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import './Imoveis.css';
 
@@ -40,10 +40,6 @@ export const Imoveis = () => {
         navigate('/posts');
     };
 
-    const redirectToDetails = (id) => {
-        navigate(`/imoveis/details/${id}`);
-    };
-
     if (loading) return <div className='loading'>Carregando...</div>;
     if (error) return <div>Error: {error.message}</div>;
 
@@ -52,19 +48,30 @@ export const Imoveis = () => {
             <h1 className='heading-imoveis'>O imóvel ideal você encontra aqui!</h1>
             <p>Navegue entre os melhores imóveis da região</p>
 
-            <div className='div-imoveis-container'>
-                <div className="imoveis-list">
-                    {data.map(photo => (
-                        <div key={photo.id} className='imovel-card' onClick={() => redirectToDetails(photo.id)}>
-                            <img src={`data:image/jpeg;base64,${photo.imageBase64}`} alt={photo.title} className='post-image' />
-                            <div className="card-content">
-                                <h3>{photo.title}</h3>
-                                <p>{photo.description}</p> 
-                            </div>
+                <div className='div-imoveis-container' >
+
+
+                        <div className="imoveis-list">
+                            {data.map(item => (
+                                <Link to={`/details/${item.id}`}>
+                                    <div key={item.id} className='imovel-card'
+                                    onClick={() => redirectToDetails(item.id)}>
+                                    <img src={`data:image/jpeg;base64,${item.imageBase64}`}
+                                    alt={item.title}
+                                    className='post-image' />
+                                    <div className="card-content">
+                                            <h3>{item.title}</h3>
+                                            <p>{item.description}</p>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))}
                         </div>
-                    ))}
+
+
                 </div>
-            </div>
+
+
             <div className='button flex'>
                 {hasToken && (
                     <button className='inserir-imovel-button' onClick={handleInserirImovel}>Inserir Imóvel</button>
