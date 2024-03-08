@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import './Profile.css';
 import axios from 'axios';
 
+import profileImg from '../image/profile-photo.jpg'
+
 export const Profile = () => {
 
     const [hasToken, setHasToken] = useState(localStorage.getItem("token"));
@@ -19,24 +21,28 @@ export const Profile = () => {
         setHasToken(token);
     }, [hasToken]); // Atualizar sempre que hasToken mudar
 
-    if (hasToken) {
-        useEffect(() => {
-            const fetchData = async () => {
-                try {
-                    const response = await axios.get('http://localhost:8080/user/getAll');
-                    setData(response.data);
-                } catch (error) {
-                    setError(error);
-                } finally {
-                    setLoading(false);
-                }
-            };
-    
-            fetchData();
-        }, []);
-    } else {
-        console.log(error)
-    }
+    useEffect(() => {
+        const fetchProfile = async () => {
+            try {
+                // Obtendo o token de alguma forma (por exemplo, armazenado em localStorage)
+                const token = localStorage.getItem('token');
+
+                const response = await axios.get(`http://localhost:8080/user/getAll`, {
+                    headers: {
+                        Authorization: `Bearer ${token}` // Adicionando o token ao cabeçalho de autorização
+                    }
+                });
+
+                setData(response.data); 
+            } catch (error) {
+                setError(error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProfile();
+    }, []);
     
 
     if (loading) return <div className='loading'>Carregando...</div>;
@@ -45,9 +51,17 @@ export const Profile = () => {
     return (
     <>
         <div className="container">
-            <div className="photo-size">
-            <img src="" alt="" />
+            <div className="container-profile">
+            <img src={profileImg} alt="Foto de Perfil" />
+            <h3>Mina Imoveis</h3>
+
+            <div className='list-user'>
+                <p><span>Telefone: </span>+55 31 9999-9999</p>
+                <p><span>E-mail: </span>minaMinari@gmail.com</p>
+                <p><span>Plano Atual: </span>PRO</p>
+                </div>
             </div>
+
         </div>
     </>
     )

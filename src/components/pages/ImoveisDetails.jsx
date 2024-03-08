@@ -42,8 +42,8 @@ const ImoveisDetails = () => {
         <div className='contentContainer'>
             <div className='imageContent'>
             <img src={`data:image/jpeg;base64,${imovel.imageBase64}`}
-                                    alt={imovel.title}
-                                    className='post-image' />
+                alt={imovel.title}
+                className='post-image' />
             </div>
             <div className='detailsContainer'>
             <h2>Este local Oferece:</h2>

@@ -14,7 +14,8 @@ export const Login = () => {
         phone: '',
         email: '',
         password: '',
-        userType: 'COMMON' 
+        userType: 'COMMON',
+        
     });
 
     const [showLoginForm, setShowLoginForm] = useState(true); // Estado para controlar a exibição do formulário de login
