@@ -1,32 +1,38 @@
-
 .contentContainer {
     width: 60%;
+    height: 600px;
     margin-right: 20%;
     margin-left: 20%;
     margin-top: 5%;
     margin-bottom: 5%;
-    padding-right: 100px;
+    padding-right: px;
     padding-top: 40px;
     padding-bottom: 40px;
     border-radius: 36px;
     display: flex;
     background-color: whitesmoke;
-
-
+    align-items: flex-start; /* Align items at the start (top) */
 }
 
 .imageContent {
     border-radius: 25px;
-    height: 50%;
-    width: 50%;
+    width: 40%;
 }
 .post-image {
     width: 100%;
 }
 .detailsContainer {
+    background-color: white;
+    border-radius: 32px;
+    width: 450px;
+    height: 100%;
+    margin-left: 40px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
 }
 .detailsContainer h2 {
-    margin-bottom: 1px solid black;
+    align-self: flex-start;
+    font-size: 40px;
+    border-bottom: 1px solid black;
 }

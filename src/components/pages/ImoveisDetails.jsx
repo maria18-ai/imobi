@@ -47,9 +47,17 @@ const ImoveisDetails = () => {
             </div>
             <div className='detailsContainer'>
             <h2>Este local Oferece:</h2>
+
+            <div className='images-container'>
+                <img src="" alt="bathrooms"/><span>{imovel.bathrooms}</span>
+                <img src="" alt="rooms"/><span>{imovel.rooms}</span> 
+                <img src="" alt="Wifi"/>
+                <img src="" alt="Pool"/>
+            </div>
+
             <p>Título: {imovel.title}</p>
             <p>Descrição: {imovel.description}</p>
-            
+
             {/* Adicione outras informações do imóvel que você deseja exibir */}
         </div>
         </div>
