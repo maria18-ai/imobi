@@ -7,7 +7,7 @@ import profileImg from '../image/profile-photo.jpg'
 export const Profile = () => {
 
     const [hasToken, setHasToken] = useState(localStorage.getItem("token"));
-    const [data,setData] = useState([]);
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -33,7 +33,7 @@ export const Profile = () => {
                     }
                 });
 
-                setData(response.data); 
+                setData(response.data);
             } catch (error) {
                 setError(error);
             } finally {
@@ -43,26 +43,25 @@ export const Profile = () => {
 
         fetchProfile();
     }, []);
-    
+
 
     if (loading) return <div className='loading'>Carregando...</div>;
     if (error) return <div>Error: {error.message}</div>;
 
     return (
-    <>
-        <div className="container">
-            <div className="container-profile">
-            <img src={profileImg} alt="Foto de Perfil" />
-            <h3>Mina Imoveis</h3>
+        <>
+            <div className="container">
+                <div className="container-profile">
+                    <img src={profileImg} alt="Foto de Perfil" />
+                    <h3>Mina Imoveis</h3>
 
-            <div className='list-user'>
-                <p><span>Telefone: </span>+55 31 9999-9999</p>
-                <p><span>E-mail: </span>minaMinari@gmail.com</p>
-                <p><span>Plano Atual: </span>PRO</p>
+                    <div className='list-user'>
+                        <p><span>Telefone: </span>{data.phone}</p>
+                        <p><span>E-mail: </span>{data.email}</p>
+                    </div>
                 </div>
-            </div>
 
-        </div>
-    </>
+            </div>
+        </>
     )
 }
