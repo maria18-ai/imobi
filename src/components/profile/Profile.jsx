@@ -27,7 +27,7 @@ export const Profile = () => {
                 // Obtendo o token de alguma forma (por exemplo, armazenado em localStorage)
                 const token = localStorage.getItem('token');
 
-                const response = await axios.get(`http://localhost:8080/user/getAll`, {
+                const response = await axios.get(`http://localhost:8080/auth/token`, {
                     headers: {
                         Authorization: `Bearer ${token}` // Adicionando o token ao cabeçalho de autorização
                     }
