@@ -38,30 +38,35 @@ const ImoveisDetails = () => {
     if (!imovel) return <div>Imóvel não encontrado.</div>;
 
     return (
-    
+
         <div className='contentContainer'>
-            <div className='imageContent'>
-            <img src={`data:image/jpeg;base64,${imovel.imageBase64}`}
-                alt={imovel.title}
-                className='post-image' />
+    <div className='imageContent'>
+        <img src={`data:image/jpeg;base64,${imovel.imageBase64}`}
+            alt={imovel.title}
+            className='post-image' />
+    </div>
+    
+    <div className='detailsContainer'>
+        <h2>Este local Oferece:</h2>
+
+        <div className='icons-container'>
+            <div className='top-icons'>
+                <i className={`fa-solid fa-toilet-paper`}></i><span>{imovel.bathRooms}</span>
+                <i className={`fa-solid fa-bed`}></i><span>{imovel.rooms}</span>
             </div>
-            <div className='detailsContainer'>
-            <h2>Este local Oferece:</h2>
-
-            <div className='images-container'>
-                <img src="" alt="bathrooms"/><span>{imovel.bathrooms}</span>
-                <img src="" alt="rooms"/><span>{imovel.rooms}</span> 
-                <img src="" alt="Wifi"/>
-                <img src="" alt="Pool"/>
+            <div className='bottom-icons'>
+                <i className={`fa-solid ${imovel.wifi ? 'fa-wifi' : 'fa-wifi-slash'}`}></i><span>{imovel.wifi ? 'Wifi Disponível' : 'Sem Wifi'}</span>
+                <i className={`fa-solid ${imovel.pool ? 'fa-water-ladder' : 'fa-water-slash'}`}></i><span>{imovel.pool ? 'Piscina Disponível' : 'Sem Piscina'}</span>
             </div>
-
-            <p>Título: {imovel.title}</p>
-            <p>Descrição: {imovel.description}</p>
-
-            {/* Adicione outras informações do imóvel que você deseja exibir */}
         </div>
-        </div>
-        
+
+        <h6 >{imovel.title}</h6>
+        <p>Descrição do Imóvel: {imovel.description}</p>
+
+        {/* Adicione outras informações do imóvel que você deseja exibir */}
+    </div>
+</div>
+
     );
 };
 
