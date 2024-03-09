@@ -31,10 +31,10 @@ export const Imoveis = () => {
         setHasToken(token);
     }, []); 
 
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        setHasToken(null);
-    };
+    // const handleLogout = () => {
+    //     localStorage.removeItem("token");
+    //     setHasToken(null);
+    // };
 
     const handleInserirImovel = () => {
         navigate('/posts');
@@ -49,28 +49,20 @@ export const Imoveis = () => {
             <p>Navegue entre os melhores imóveis da região</p>
 
                 <div className='div-imoveis-container' >
-
-
-                        <div className="imoveis-list">
-                            {data.map(item => (
-
-                                <Link to={`/details/${item.id}`}>
-                                    <div key={item.id} className='imovel-card'
-                                    onClick={() => redirectToDetails(item.id)}>
-                                    <img src={`data:image/jpeg;base64,${item.imageBase64}`}
-                                    alt={item.title}
-                                    className='post-image' />
-                                    <div className="card-content">
-                                            <h3>{item.title}</h3>
-                                            <p>{item.description}</p>
-                                        </div>
-                                    </div>
-                                </Link>
-                                
-                            ))}
-                        </div>
-
-
+                <div className="imoveis-list">
+                    {data.map(item => (
+                        <Link key={item.id} to={`/details/${item.id}`}>
+                        <div className='imovel-card' onClick={() => redirectToDetails(item.id)}>
+                        <img src={`data:image/jpeg;base64,${item.imageBase64}`} alt={item.title} className='post-image' />
+                        <div className="card-content">
+                        <h3>{item.title}</h3>
+                        <p>{item.description}</p>
+                        <p>{item.price}</p>
+                </div>
+                </div>
+                    </Link>
+                    ))}
+                </div>
                 </div>
 
 

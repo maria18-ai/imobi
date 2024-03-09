@@ -17,6 +17,7 @@ import { Post } from './components/posts-imoveis/Post.jsx';
 import { About } from './components/sobre/About.jsx';
 import { Profile } from './components/profile/Profile.jsx';
 import  Details  from './components/pages/ImoveisDetails.jsx';
+import { PostImg } from './components/posts-imoveis/post-img-imoveis/PostImg.jsx';
 
 
 const router = createBrowserRouter([
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
   {
     path: 'posts',
     element: <Post />
+  },
+  {
+    path:'imoveisImg',
+    element: <PostImg />
   }
 
 ]);

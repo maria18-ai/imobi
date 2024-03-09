@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import './Post.css';
+import { useState } from "react";
+import './Post.css'
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Post = () => {
+
+    const navigate = useNavigate();
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
         title: '',
         description: '',
         zipcode: '',
+        price: 0,
         neighborhood: '',
         city: '',
         state: '',
@@ -50,6 +54,7 @@ export const Post = () => {
                 }
             });
             console.log('Dados enviados com sucesso!');
+            navigate('/imoveisImg');
 
         } catch (error) {
             console.error('Erro ao enviar os dados:', error.message);
@@ -105,6 +110,11 @@ export const Post = () => {
                             <div className="input-field">
                                 <label>Número</label>
                                 <input type="number" name="number" value={formData.number} onChange={handleInputChange} placeholder='Número do imóvel' required />
+                            </div>
+
+                            <div className="input-field">
+                                <label>Preço do Imóvel</label>
+                                <input type="number" name="price" value={formData.price} onChange={handleInputChange} placeholder='Valor do Imóvel' required />
                             </div>
                         </div>
                     </div>
