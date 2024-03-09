@@ -8,20 +8,19 @@ const ImoveisDetails = () => {
     const [imovel, setImovel] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    
     useEffect(() => {
         const fetchImovel = async () => {
             try {
-                // Obtendo o token de alguma forma (por exemplo, armazenado em localStorage)
                 const token = localStorage.getItem('token');
-
+       
                 const response = await axios.get(`http://localhost:8080/post/getPostById/${id}`, {
                     headers: {
-                        Authorization: `Bearer ${token}` // Adicionando o token ao cabeçalho de autorização
+                        Authorization: `Bearer ${token}` 
                     }
                 });
 
-                setImovel(response.data); // Definindo o imóvel encontrado no estado
+                setImovel(response.data);
             } catch (error) {
                 setError(error);
             } finally {
@@ -30,7 +29,7 @@ const ImoveisDetails = () => {
         };
 
         fetchImovel();
-    }, [id]); // Dependência do useEffect para refletir alterações no ID da rota
+    }, [id]);
 
     if (loading) return <div>Carregando...</div>;
     if (error) return <div>Error: {error.message}</div>;

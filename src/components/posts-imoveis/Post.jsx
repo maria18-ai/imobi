@@ -53,7 +53,9 @@ export const Post = () => {
                     'Authorization': `Bearer ${token}`
                 }
             });
+
             console.log('Dados enviados com sucesso!');
+            localStorage.setItem('postId', response.data.id)
             navigate('/imoveisImg');
 
         } catch (error) {
