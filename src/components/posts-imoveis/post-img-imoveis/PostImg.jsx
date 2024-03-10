@@ -1,6 +1,6 @@
+import React from 'react';
 import './PostImg.css'
 import { Link } from 'react-router-dom';
-import React from 'react';
 
 export const PostImg = () => {
     const handleFileUpload = async () => {
@@ -9,7 +9,6 @@ export const PostImg = () => {
         const token = localStorage.getItem('token');
         const id = localStorage.getItem('postId');
 
-        console.log(id)
         if (!file) {
             console.error('No file selected');
             return;
@@ -50,22 +49,13 @@ export const PostImg = () => {
     return (
         <div className="container">
             <div className='header-img'>
-                <div className='titles-container'>
-                    <h3>Estamos quase lá...</h3>
-                    <h4>Acrescente uma foto do meu imóvel!</h4>
-                </div>
+                <h3>Estamos quase lá...</h3>
+                <h4>Acrescente uma foto do meu imóvel!</h4>
 
                 <div className='post-img'>
-
-                    <label htmlFor="file">
-                        <span>Escolha uma imagem</span>
-                        <input type="file" name="file" id="file" />
-                    </label>
+                    <input type="file" name="image" id="image" />
+                    <button onClick={handleFileUpload}>Enviar</button> {/* Botão de envio */}
                 </div>
-
-                <Link to='/imoveis'>
-                <button className='btn-sendPhoto' onClick={handleFileUpload}>Enviar</button>
-                </Link>{/* Botão de envio */}
             </div>
         </div>
     );
