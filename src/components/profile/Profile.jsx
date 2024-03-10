@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Importando o componente Link
 import './Profile.css';
 import axios from 'axios';
 
-import profileImg from '../image/profile-photo.jpg'
+import profileImg from '../image/profile-photo.jpg';
 
 export const Profile = () => {
-
-
     const [hasToken, setHasToken] = useState(localStorage.getItem("token"));
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -25,15 +24,12 @@ export const Profile = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                // Obtendo o token de alguma forma (por exemplo, armazenado em localStorage)
                 const token = localStorage.getItem('token');
-
                 const response = await axios.get(`http://localhost:8080/auth/token`, {
                     headers: {
-                        Authorization: `Bearer ${token}` // Adicionando o token ao cabeçalho de autorização
+                        Authorization: `Bearer ${token}`
                     }
                 });
-
                 setData(response.data);
             } catch (error) {
                 setError(error);
@@ -45,7 +41,6 @@ export const Profile = () => {
         fetchProfile();
     }, []);
 
-
     if (loading) return <div className='loading'>Carregando...</div>;
     if (error) return <div>Error: {error.message}</div>;
 
@@ -55,22 +50,21 @@ export const Profile = () => {
                 <div className="container-profile">
                     <img src={profileImg} alt="Foto de Perfil" />
                     <h3>{data.name}</h3>
-
                     <div className='list-user'>
                         <p><span>Telefone: </span>{data.phone}</p>
                         <p><span>E-mail: </span>{data.email}</p>
                     </div>
                 </div>
-
             </div>
 
             <div className='logOut-container'>
-                    <div className="button flex">
-                        <button className='btn-logOut' onClick={handleLogout}>
+                <div className="button flex">
+                    {/* Utilizando o componente Link para redirecionar para "/" */}
+                    <Link to="/" className='btn-logOut' onClick={handleLogout}>
                         <i class="fa-solid fa-right-from-bracket"></i>
-                            Sair
-                        </button>
-                    </div>
+                        Sair
+                    </Link>
+                </div>
             </div>
         </>
     )
