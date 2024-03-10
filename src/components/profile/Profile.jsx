@@ -6,20 +6,21 @@ import profileImg from '../image/profile-photo.jpg'
 
 export const Profile = () => {
 
+
     const [hasToken, setHasToken] = useState(localStorage.getItem("token"));
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // const handleLogout = () => {
-    //     localStorage.removeItem("token");
-    //     setHasToken(null);
-    // };
-
     useEffect(() => {
         const token = localStorage.getItem("token");
         setHasToken(token);
     }, [hasToken]); // Atualizar sempre que hasToken mudar
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        setHasToken(null);
+    };
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -61,6 +62,15 @@ export const Profile = () => {
                     </div>
                 </div>
 
+            </div>
+
+            <div className='logOut-container'>
+                    <div className="button flex">
+                        <button className='btn-logOut' onClick={handleLogout}>
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                            Sair
+                        </button>
+                    </div>
             </div>
         </>
     )

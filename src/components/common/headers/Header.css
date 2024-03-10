@@ -32,3 +32,7 @@ header {
     color: #2cca6e;
 }
 
+.button .btn-logOut {
+    margin-top: -2rem;
+    margin-bottom: 2rem;
+}

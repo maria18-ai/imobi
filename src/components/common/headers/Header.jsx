@@ -6,10 +6,12 @@ import './Header.css'
 export const Header = () => {
     const [hasToken, setHasToken] = useState(localStorage.getItem("token"));
 
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        setHasToken(null);
-    };
+    // const handleLogout = () => {
+    //     localStorage.removeItem("token");
+    //     setHasToken(null);
+    // };
+
+    // 
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -34,10 +36,11 @@ export const Header = () => {
 
                     {hasToken ? (
                         <div className="button flex">
-                            <button className='btn2' onClick={handleLogout}>
-                                <i className="fa-regular fa-user"></i>
-                                Sair
-                            </button>
+                            <Link to='perfil'>
+                                <button className='btn2'>
+                                    <i className="fa-solid fa-user"></i>
+                                </button>
+                            </Link>
                         </div>
                     ) : (
                         <div className="button flex">

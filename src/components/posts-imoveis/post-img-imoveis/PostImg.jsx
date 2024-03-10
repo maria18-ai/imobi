@@ -1,5 +1,5 @@
 import './PostImg.css'
-
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 export const PostImg = () => {
@@ -50,13 +50,22 @@ export const PostImg = () => {
     return (
         <div className="container">
             <div className='header-img'>
-                <h3>Estamos quase lá...</h3>
-                <h4>Acrescente uma foto do meu imóvel!</h4>
+                <div className='titles-container'>
+                    <h3>Estamos quase lá...</h3>
+                    <h4>Acrescente uma foto do meu imóvel!</h4>
+                </div>
 
                 <div className='post-img'>
-                    <input type="file" name="image" id="image" />
-                    <button onClick={handleFileUpload}>Enviar</button> {/* Botão de envio */}
+
+                    <label htmlFor="file">
+                        <span>Escolha uma imagem</span>
+                        <input type="file" name="file" id="file" />
+                    </label>
                 </div>
+
+                <Link to='/imoveis'>
+                <button className='btn-sendPhoto' onClick={handleFileUpload}>Enviar</button>
+                </Link>{/* Botão de envio */}
             </div>
         </div>
     );

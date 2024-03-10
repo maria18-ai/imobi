@@ -1,0 +1,57 @@
+.header-img {
+    background-color: #ededed;
+    width: 500px;
+    height: 550px;
+    border-radius: 15px;
+    box-shadow: 5px 10px 15px  rgba(0, 0, 0, 0.107);
+    display: block;
+    aspect-ratio: 16/9;
+    padding: 20px;
+}
+
+.header-img .titles-container h3 {
+    text-transform: uppercase;
+    color: #444;
+    font-size: 30px;
+    padding-top: 4rem;
+}
+
+.header-img .titles-container h4 {
+    color: #888;
+    font-size: 15px;
+    padding-bottom: 5rem;
+}
+
+.header-img .post-img label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    padding: 5rem;
+    border: 2px dashed #aaa;
+    transition: .5s ease;
+}
+
+.header-img .post-img label:hover {
+    color: #777;
+    background-color: #ccc;
+}
+
+.header-img .post-img label:active {
+    color: #27ae60;
+    background-color: #fff;
+    border: 2px dashed #27ae60;
+}
+
+.header-img .post-img .picture {
+    width: 100%;
+}
+
+.header-img .post-img input[type='file'] {
+    display: none;
+}
+
+.header-img .btn-sendPhoto {
+    margin-top: 2rem;
+}
