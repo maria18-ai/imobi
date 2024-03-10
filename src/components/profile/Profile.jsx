@@ -54,7 +54,7 @@ export const Profile = () => {
             <div className="container">
                 <div className="container-profile">
                     <img src={profileImg} alt="Foto de Perfil" />
-                    <h3>Mina Imoveis</h3>
+                    <h3>{data.name}</h3>
 
                     <div className='list-user'>
                         <p><span>Telefone: </span>{data.phone}</p>
