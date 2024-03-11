@@ -51,10 +51,14 @@ export const PostImg = () => {
             <div className='header-img'>
                 <h3>Estamos quase lá...</h3>
                 <h4>Acrescente uma foto do meu imóvel!</h4>
-
                 <div className='post-img'>
-                    <input type="file" name="image" id="image" />
-                    <button onClick={handleFileUpload}>Enviar</button> {/* Botão de envio */}
+                    
+                    <label>
+                    <input type="file" name="image" id="image"/> Escolha uma imagem
+                    </label>
+                    <Link to='/'>
+                        <button onClick={handleFileUpload} className='btn-sendPhoto'>Enviar</button> {/* Botão de envio */}
+                    </Link>
                 </div>
             </div>
         </div>
