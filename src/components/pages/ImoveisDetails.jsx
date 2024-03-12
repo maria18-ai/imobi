@@ -13,7 +13,7 @@ const ImoveisDetails = () => {
         const fetchImovel = async () => {
             try {
                 const token = localStorage.getItem('token');
-       
+
                 const response = await axios.get(`http://localhost:8080/post/getPostById/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}` 
